@@ -1,22 +1,39 @@
-let testString = document.getElementById('input')
+let string = document.getElementById('input')
 let output = document.getElementById('output')
-let button = document.getElementById('button')
+let reverseButton = document.getElementById('reverseButton')
+let alphaButton = document.getElementById('alphaButton')
+let palButton = document.getElementById('palindromeButton')
 
 
 function reversal() {
-   button.addEventListener('click', function () {
-      output.innerHTML = testString.value.split('').reverse().join('')
+   reverseButton.addEventListener('click', function () {
+      output.innerHTML = string.value.split('').reverse().join('')
    })
 }
 
 function alphabits() {
-
+   alphaButton.addEventListener('click', function () {
+      output.innerHTML = string.value.split('').sort().join('')
+   })
 }
 
 function palindrome() {
-
+   palButton.addEventListener('click', function () {
+         if (string.value === string.value.split('').reverse().join('')) {
+            output.innerHTML = "It's a palindrome!"
+         }
+         else {
+            output.innerHTML = "It's not a palindrome!"
+         }
+   })
 }
 
-// reversal(testString);
-// alphabits(testString);
-// palindrome(testString);
+reversal()
+alphabits()
+palindrome()
+
+// clear button
+document.getElementById('clear').addEventListener('click', function () {
+   output.innerHTML = "";
+   string.value = "";
+})
